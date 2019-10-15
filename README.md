@@ -1,2 +1,9 @@
-# flask_todo_app
-Basic todo app using Flask
+# Basic Flask Todo App
+A simple todo app to practice CRUD applications with Flask.
+
+### Frameworks / Extensions
+- Flask
+- SQLalchemy
+
+Deployed at: 
+https://ancient-retreat-47021.herokuapp.com
