@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block head %}
+<title>Flask Task App</title>
+{% endblock %} {% block body %}
+<div class="content">
+  <h1 style="text-align: center">Flask Task App</h1>
+  {% if tasks|length < 1 %}
+  <h3 style="text-align: center">No tasks yet...</h3>
+  {% else %}
+  <table class="table is-hoverable">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Added Date</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.content }}</td>
+      <td>{{ task.date_created.date() }}</td>
+      <td>
+        <a href="/delete/{{ task.id }}">Delete</a>
+        <br />
+        <a href="/update/{{ task.id }}">Update</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% endif %}
+
+  <form class="field has-addons" action="/" method="POST">
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        name="content"
+        id="content"
+        placeholder="Add a task"
+      />
+    </div>
+    <div class="control">
+      <input class="button is-info" type="submit" value="Add Task" />
+    </div>
+  </form>
+</div>
+{% endblock %}
